@@ -37,7 +37,6 @@ class JTableObserverJdswatcher extends JTableObserver
     {
         $team_id = $this->table->id;
         $default_season_id = $this->params->get('season_id', 0);
-        var_dump($this->table);die;
 
         if ($team_id && $default_season_id) {
             // Check if this team is belong to default season or not
