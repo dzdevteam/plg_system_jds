@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system">
+	<name>plg_system_jds</name>
+	<author>DZ Dev Team</author>
+	<creationDate>September 2014</creationDate>
+	<copyright>Copyright (C) 2014 DZ Creative Studio. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>herophuong93@gmail.com</authorEmail>
+	<authorUrl>lephuong.me</authorUrl>
+	<version>3.0.0</version>
+	<description>Specify default season for new team</description>
+	<files>
+		<filename plugin="jds">jds.php</filename>
+		<filename>jdswatcher.php</filename>
+		<filename>jds.xml</filename>
+		<filename>index.html</filename>
+	</files>
+	<administration>
+		<languages>
+			<language tag="en-GB">en-GB.plg_system_jds.ini</language>
+			<language tag="en-GB">en-GB.plg_system_jds.sys.ini</language>
+		</languages>
+	</administration>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="season_id" type="sql"
+					query="SELECT CONCAT(t.name, ' - ', s_name) as name, s_id as id FROM #__bl_seasons as s LEFT JOIN #__bl_tournament as t ON s.t_id = t.id ORDER BY t.name"
+					description="PLG_JDS_SEASON_DESCRIPTION"
+					label="PLG_JDS_SEASON_LABEL"
+					required="true"
+					key_field="id"
+					value_field="name">
+					<option value="">PLG_JDS_SEASON_OPTION_BLANK</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
